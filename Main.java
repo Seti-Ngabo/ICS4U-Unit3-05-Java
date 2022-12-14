@@ -1,10 +1,9 @@
 /*
-* This program prints out
-* the Magic Squares.
+* This program generates all the magic squares with a magical number equal to 15.
 *
 * @author  Seti Ngabo
 * @version 1.0
-* @since   2022-11-27
+* @since   2022-11-18
 */
 
 import java.util.ArrayList;
@@ -102,10 +101,10 @@ final class MagicSquare {
     public static ArrayList<Integer> findDuplicates(int[] arr) {
         final ArrayList<Integer> duplicates = new ArrayList<Integer>();
 
-        for (int counter = 0; counter < arr.length; counter++) {
-            for (int counter1 = 1; counter1 < arr.length; counter1++) {
-                if (arr[counter] == arr[counter1] && counter != counter1) {
-                    duplicates.add(arr[counter1]);
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length; j++) {
+                if (arr[i] == arr[j] && i != j) {
+                    duplicates.add(arr[i]);
                     break;
                 }
             }
@@ -147,8 +146,9 @@ final class MagicSquare {
     public static void printMagicSquare(final int[] outputSquare) {
         // prints inputted array in a magic square format
         final String space = " ";
+        final String border = "\n- - -";
 
-        System.out.println('\n');
+        System.out.println(border);
         for (int count = 0; count < outputSquare.length; count++) {
             if (count == THREE || count == SIX) {
                 System.out.println();
@@ -157,6 +157,7 @@ final class MagicSquare {
                 System.out.print(outputSquare[count] + space);
             }
         }
+        System.out.println(border);
     }
 
     /**
